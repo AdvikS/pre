@@ -787,7 +787,9 @@ pre <- function(formula, data, family = gaussian,
   
   y <- modmat_data$y
   x <- modmat_data$x  
-
+  
+  if (ncol(x) == 1) x <- cbind(0, x)
+  
   if (is.null(cl$penalty.factor)) {
     penalty.factor <- rep(1L, times = ncol(x))
   } 
