@@ -2266,6 +2266,8 @@ predict.pre <- function(object, newdata = NULL, type = "link",
       confirmatory = object$call$confirmatory)
     
     newdata <- newdata$x
+    
+    if (ncol(newdata) == 1) newdata <- cbind(0, newdata)
   }
   
   ## Get predictions:
